@@ -1,0 +1,40 @@
+.addbook-form{
+    width: 700px;
+    margin: 30px auto;
+    border: 3px solid lightblue;
+    padding: 15px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.card-img-top{
+    max-width: 150px;
+    max-height: 180px;
+    margin: 0 auto 0 auto;
+    padding-top: 10px;
+}
+
+.card{
+    margin-bottom: 10px;
+}
+
+.card-body{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.navbar{
+    margin-bottom: 20px;
+}
+
+#quantity-form{
+    width: 100px;
+    margin-bottom: 15px;
+    margin-top: 50px;
+}
+
+.cart-image{
+    max-height: 160px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/common :: common-header"/>
+<body>
+<nav th:replace="partials/common :: common-navbar"/>
+
+<div class="container">
+    <div class="addbook-form">
+        <h3 class="text-center">Register</h3>
+        <form th:action="@{/register}" th:object="${user}" method="post">
+
+            <input type="hidden" name="_id"  th:field="*{_id}">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" th:field="*{email}" id="email" placeholder="Email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Password">
+            </div>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Name">
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary">Register</button>
+            <br>
+            <span >Already have an account <a href="./login.html" th:href="@{/login}">Login here</a></span>
+        </form>
+    </div>
+
+</div>
+
+
+<footer th:replace="partials/common :: common-footer" />
+</body>
+</html>
+
+

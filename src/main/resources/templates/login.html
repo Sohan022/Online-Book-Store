@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="partials/common :: common-header"/>
+<body>
+<nav th:replace="partials/common :: common-navbar"/>
+
+<div class="container">
+    <div class="addbook-form">
+        <h3 class="text-center">Login</h3>
+        <form th:action="@{/login}"  method="post">
+            <div th:if="${param.error}" class="alert alert-error text-danger text-center">
+                Invalid username or password.
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary">Login</button>
+            <br>
+            <span >Don't have an account <a href="./register.html" th:href="@{/register}">Register here</a></span>
+        </form>
+    </div>
+
+</div>
+
+
+<footer th:replace="partials/common :: common-footer" />
+</body>
+</html>
+
+

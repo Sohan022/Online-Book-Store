@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="partials/common :: common-header"/>
+<body>
+<nav th:replace="partials/common :: common-navbar"/>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-5 d-flex justify-content-center">
+                <img class="mt-5" height="450px" width="300px" src="" th:src="${book.url}"
+                     alt="">
+            </div>
+            <div class="col-sm-7 mt-5">
+                <h2 th:text="${book.name}"></h2>
+                <p> by <span th:text="${book.author}" /></p>
+                <h2>₹ <span th:text="${book.price}"></span></h2>
+                <div class="description">
+                    <h5 >Description:</h5>
+                    <p th:text="${book.description}"></p>
+                </div>
+
+                <form th:action="@{/addtocart/{bookId}(bookId = ${book._id})}" method="post">
+                    <div class="form-group" id="quantity-form">
+                        <label for="quantity"><strong>Quantity</strong></label>
+                        <select class="form-control"  id="quantity" name="quantity">
+                            <option th:each="i : ${#numbers.sequence(1, book.getQuantity())}"
+                                    th:value="${i}"
+                                    th:text="${i}"
+                            >
+                        </select>
+                    </div>
+<!--                    <div sec:authorize="isAuthenticated()">-->
+<!--                        <input type="hidden" name="userId"  th:value="${#authentication.principal.Id}">-->
+<!--                    </div>-->
+
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+<footer th:replace="partials/common :: common-footer" />
+</body>
+</html>

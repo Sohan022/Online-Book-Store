@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="partials/common :: common-header"/>
+<body>
+    <nav th:replace="partials/common :: common-navbar"/>
+    <div class="container">
+        <div class="addbook-form">
+            <h3 class="text-center">Add a new Book</h3>
+            <form th:action="@{/admin/addbook}" th:object="${book}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_id"  th:field="*{_id}">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Book Name</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Book Name">
+                </div>
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author Name</label>
+                    <input type="text" class="form-control" id="author" th:field="*{author}" placeholder="Author Name">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Price">
+                </div>
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" th:field="*{quantity}" placeholder="Quantity">
+                </div>
+                <div class="mb-3">
+                    <label for="url" class="form-label">Book Image</label>
+                    <input type="text" class="form-control" id="url" th:field="*{url}" placeholder="Url">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea type="text" class="form-control" th:field="*{description}" id="description" placeholder="Write here..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-outline-primary">Add Book</button>
+
+            </form>
+        </div>
+
+    </div>
+
+<footer th:replace="partials/common :: common-footer" />
+</body>
+</html>
